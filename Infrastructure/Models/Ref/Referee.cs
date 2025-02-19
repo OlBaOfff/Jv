@@ -1,44 +1,35 @@
 ﻿using Infrastructure.Models.Base;
+using Infrastructure.Models.Tester;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Models.Ref
 {
-    public class Referee:BaseEntity
+    public enum Badge
     {
-        //fields
-
-        private int id;
-        private string name;
-        private string address;
-        private List<DateTime> workTime;
-        private string rang;
-        private bool licence;
-        private List<string> info;
-
-        //ctor
-        public Referee(int id, string name, string address, List<DateTime> workTime, string rang, bool licence, List<string> info)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.Address = address;
-            this.WorkTime = workTime;
-            this.Rang = rang;
-            this.Licence = licence;
-            this.Info = info;
-        }
-
+        Rookie,
+        Megyei,
+        NB2,
+        NB1
+    }
+    
+    public class Referee : BaseEntity
+    {               
         //Properties
+        //az Id meg a Deleted propertiket a BaseEntitytől megkapta, ezért nem kellett itt most újra létrehozni
+        //egy referee példánnyal ez csekkolható is
         
-        public int Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Address { get => address; set => address = value; }
-        public List<DateTime> WorkTime { get => workTime; set => workTime = value; }
-        public string Rang { get => rang; set => rang = value; }
-        public bool Licence { get => licence; set => licence = value; }
-        public List<string> Info { get => info; set => info = value; }
+        public string Name { get; set; } = "";  //ref tipusu es lehet ugye null ezt ki lehet zarni azzal ha erteke adsz neki vagy ? teszel
+        public string ?Address { get; set; }
+        public List<DateTime> WorkTime { get; set; } = new List<DateTime>();
+        public Badge Rank { get; set; }
+        public bool Licence { get; set; }
+        public List<string> Info { get; set; } = new List<string>();
+
+       
     }
 }
