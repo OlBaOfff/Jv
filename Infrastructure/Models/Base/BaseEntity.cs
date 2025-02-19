@@ -8,6 +8,7 @@ namespace Infrastructure.Models.Base
 {
     public abstract class BaseEntity
     {
+        //Properties
         public int Id { get; set; }
 
         public bool Deleted { get; set; }
