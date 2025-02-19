@@ -1,5 +1,4 @@
 ﻿using Infrastructure.Models.Base;
-using Infrastructure.Models.Tester;
 using System;
 using System.Collections.Generic;
 using System.Linq;
