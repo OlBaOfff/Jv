@@ -13,7 +13,7 @@ namespace Infrastructure.Models.Payments
         Utalás,
         Központi
     }
-    class Payment:BaseEntity
+    public class Payment:BaseEntity
     {
         //Properties
 
