@@ -1,3 +1,6 @@
+using Infrastructure.DbCont;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +10,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//a DbCont hozzaadtuk a DependencyInjection konténerhez
+builder.Services.AddDbContext<DbCont>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("JvAppDataBase")));
+
 var app = builder.Build();
+
+//scopen belul lekertuk a DbCont meghivtuk az ensurecreat metodusat
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DbCont>();
+    dbContext.Database.EnsureCreated();
+    
+}
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

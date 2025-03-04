@@ -19,7 +19,7 @@ namespace Infrastructure.Models.Matches
 
     }
     [PrimaryKey("Id")]
-    class Match:BaseEntity
+    public class Match:BaseEntity
     {
         //Properties
 
