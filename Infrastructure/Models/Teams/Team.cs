@@ -36,6 +36,6 @@ namespace Infrastructure.Models.Teams
 
         //nav properties
 
-        public virtual List<Match> Matcies { get; set; } = new List<Match>();
+        public virtual List<Match> Matchies { get; set; } = new List<Match>();
     }
 }

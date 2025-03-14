@@ -18,7 +18,7 @@ namespace Infrastructure.Repositories
         public override IQueryable<Team> WithInClude()
         {
             return base.WithInClude()
-                .Include(x => x.Matcies);
+                .Include(x => x.Matchies);
         }
     }
 }

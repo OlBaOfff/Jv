@@ -27,6 +27,6 @@ namespace Infrastructure.Models.Payments
 
         //nav properties
 
-        public virtual List<Referee> Referee { get; set; } = new List<Referee>();
+        public virtual List<Referee> Referees { get; set; } = new List<Referee>();
     }
 }
