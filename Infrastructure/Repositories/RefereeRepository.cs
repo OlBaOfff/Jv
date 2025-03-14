@@ -1,5 +1,7 @@
 ﻿using Infrastructure.GenericRepository;
 using Infrastructure.Models.Ref;
+using Infrastructure.Models.Teams;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,11 @@ namespace Infrastructure.Repositories
 
         public override IQueryable<Referee> WithInClude()
         {
-           
-            return base.WithInClude();
+            //base.WithInClude == _context.Set<T>()
+            //base az osnek (os itt a BaseRepository) a WithInclude metodussat hasznalja ami visszaadja a _context.Set<T>
+            return base.WithInClude()
+                .Include(r => r.Matchies)
+                .Include(t => t.Payments);
         }
     }
 }
